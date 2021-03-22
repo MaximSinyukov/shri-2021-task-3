@@ -14,7 +14,6 @@ const DEFAULT_STATE: State = {
 };
 
 export function createState(stories: Slide[]): [(a: Action) => void, Observable<State>] {
-
     const actions$ = new Subject<Action>();
 
     const state$ = new BehaviorSubject({ ...DEFAULT_STATE, stories });
@@ -22,7 +21,7 @@ export function createState(stories: Slide[]): [(a: Action) => void, Observable<
     createEffects(actions$, state$).subscribe(actions$);
 
     actions$.pipe(
-        withLatestFrom(state$), 
+        withLatestFrom(state$),
         map(([a, s]) => data(s, a)),
     ).subscribe(state$);
 

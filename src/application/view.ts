@@ -15,7 +15,7 @@ export const initIframe = (parent: HTMLDivElement, onLoad: (iframe: HTMLIFrameEl
     var iframe = document.createElement('iframe');
 
     iframe.classList.add('frame');
-    iframe.src = 'frame.html';
+    iframe.src = './frame.html';
     iframe.sandbox.add('allow-scripts');
     iframe.sandbox.add('allow-same-origin');
 
@@ -33,10 +33,10 @@ export const initProgress = (parent: HTMLDivElement) => {
     container.appendChild(progress);
 
     parent.appendChild(container);
-    
+
     return progress;
 }
 
 export const setElementTheme = (elem: HTMLElement, theme: SlideTheme) => {
-    elem.classList.add(`theme_${theme}`);
+    elem.classList.value = `theme_${theme}`;
 }
