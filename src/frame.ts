@@ -18,7 +18,7 @@ function sendMessage(msg: XMessage) {
 
 function receiveMessage({ data }: MessageEvent<XMessage>) {
     if (data.type === 'message@UPDATE') {
-        document.body.innerHTML = window.renderTemplate(data.alias, data.data);
+        document.body.innerHTML = window.renderTemplate(data.alias, data);
     } else if (data.type === 'message@SET_THEME') {
         setElementTheme(document.body, data.theme);
     }
